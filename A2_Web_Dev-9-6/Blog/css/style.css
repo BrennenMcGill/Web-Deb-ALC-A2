@@ -1,0 +1,92 @@
+/* Style for Brennen McGill's Blog */
+
+/* Reset */
+html,body,div,h1,h2,h3,h4,h5,h6,p,ul,ol,li
+{
+    margin:0;
+    padding:0;
+}
+/* Universal Style */
+
+body{
+    background-color: darkgrey;
+    
+}
+
+div#container{
+    display:flex;
+    flex-direction:column;
+    margin:auto;
+    width:100%;
+    background-color:beige;
+     
+}
+header#BlogHead{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    font-family:sans-serif;
+    height:300px;
+    text-align:center;
+    background-color:lightblue;
+    font-family: 'Rozha One', serif;
+    
+}
+header h1{
+    align-self:center;
+    font-size:4em;
+}
+/* Blog post */
+div#BlogPost{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    background-color:gold;
+    box-shadow:3px 3px 3px black;
+    margin:15px 0;
+    padding:10px;  
+}
+div#BlogPost2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    background-color:#ffae2c;
+    box-shadow:3px 3px 3px black;
+    margin:15px 0;
+    padding:10px;  
+}
+img#PostImg{
+    display:block;
+    align-self:flex-start;
+    width:150px;
+    height:150px;
+    background-color:white;
+    margin:5px;
+}
+
+div#PostBody{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin:0 5px;
+    font-family: 'Shadows Into Light', cursive;
+}
+h2#PostTitle{
+    align-self:auto;
+}
+
+h5#PostStamp{
+    color:#b90000;
+}
+
+p#PostText{
+    font-size:1.55em;
+    color:#6f6f6f;
+}
+
+video#HaloVideo{
+    width:300px;
+    height:250px;
+}
