@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+         <meta>
+        <title>JS Adventure Game</title>
+    </head>
+    <body>
+        <script>
+                var bread;    
+                Town();
+            function Town(){
+                var town = prompt("Welcome to our small somewhere we do not know, we have a butcher, baker and candlestick maker, oh, and an inn.") .toLowerCase();
+                if(town == "inn"){
+                    Inn();
+                }
+                else if(town == "baker"){
+                    Baker();
+                    }
+                else{
+                    Town();
+                }
+            function Inn(){
+                var inn = prompt("Welcome to the Inn, traveller!  How may I assist you?");
+            }
+            function Baker(){
+                var baker = prompt("Top of da mornin to ya! Wot can I get ya?");
+            }
+                if(baker == "exit"){
+                    Town();
+                }
+                else if(baker == "bread"){
+                    alert("Nice hot loaf of bread fer yee!")
+                    bread ++;
+                }
+                else{
+                    alert("I dont have" + baker)
+                    Baker();
+                }
+            }
+            
+            
+//            alert("Hey, listen!");
+//            confirm("Do you want to go to the movies?  As friends /:");
+//            prompt("Are you Joshing my jockstrap rn?");
+         /*   var favColor = prompt("What is your favorite color?").toLowerCase();
+            switch(favColor){
+                case "blue":
+                    alert("Yep! Y0ur a n00b");
+                break;
+                 case "green":
+                    alert("Yep! Y0ur big a n00b");
+                break;
+                 case "red":
+                    alert("Yep! Y0ur a ULTRA n00b");
+                break;
+                default:
+                    alert("Watcha talkin about Willis!");
+                break;}*/
+                           
+        /*    if(favColor == "blue" ){
+                alert("The sky is blue!  It is a wonderful color!");
+            }
+            else if (favColor == "red"){
+                alert("You like the color of blood?  You pleb!");
+            }
+            else if (favColor == "green"){
+                alert("Are you green with envy?");
+            }  
+            else if (favColor == "yellow"){
+                alert("Yellow is the color of sun shine, and that pretty dumb!");
+            }  
+            else if (favColor == "grey"){
+                alert("Your basic and boring!");
+            }
+            else{
+                alert("You have poor taste in color");
+            }
+            
+            alert("Your favorit color is " + favColor);*/
+        </script>
+    </body>
+</html>

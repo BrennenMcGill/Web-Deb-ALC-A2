@@ -1,0 +1,207 @@
+/* Css Style Sheet */
+/* Global Style */
+body{
+    background-color: #000;
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    
+}
+
+div#container{
+    background-color:orange;
+    width:1024px;
+    /* Centers the Container */
+    margin:auto;
+    
+}
+header{
+    background-image:url(../VGPP.jpg);
+    background-position: right;
+    background-size: 100%;
+    text-align:center;
+   background-color:saddlebrown;
+   width:100%;
+   height:150px;
+    margin:0;
+}
+header h1{
+    padding-top:50px;
+    color:darkgoldenrod;
+    text-shadow:1px 1.5px 2px black;
+    margin:0;
+   /* font-family: 'Anton', sans-serif; */
+    font-family: 'Lobster', cursive; 
+   /* font-family: 'Dancing Script', cursive; */
+    font-size:50px
+
+
+}
+nav {
+    width:100%;
+    background-color:darkgrey;
+    clear:both;
+    margin:0;
+    font-family:fantasy;
+    font-size:25;
+    box-shadow: 2px 3px 15px black;
+}
+
+
+nav ul {
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    list-style:none;
+}
+nav ul li {
+    float:left;
+    
+}
+
+nav ul li a{
+    display:block;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    padding: 10px 20px;
+}
+
+nav ul li a:hover{
+    background-color:blueviolet;
+}
+
+.active{
+    background-color:orange;
+}
+footer{
+    width:100%;
+    background:#000;
+    color:orange;
+    text-align:center;
+    padding:20px 0;
+    
+}
+
+.keepOpen{
+    clear:both;
+}
+/* index.html */
+img#home_img{
+    width:450px;
+    display:block;
+    margin:10px;
+    border:5px outset grey;
+    float:left;
+    
+}
+h2#h2-home{
+    float:left;
+    margin-bottom:0;
+    margin-top:10px;
+     font-family: 'Lobster', cursive;
+}
+p#p-home{
+    float:left;
+    width:53%;
+    margin-top:10px;
+    font-family: 'Anton', sans-serif;
+}
+/* about.html */
+
+img#about_img{
+    width:450px;
+    display:block;
+    margin:10px;
+    border:5px outset grey;
+    float:left;
+}
+
+h2#h2-about{
+    float:left;
+    font-family: 'Lobster', cursive;
+    margin-bottom:-10px;
+}
+p#p-about{
+    float:left;
+    width:53%
+}
+
+/* Procuts.html */
+
+div#gallery{
+    width:99.5%;
+    border:3px dotted brown;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+figure{
+    width:325px;
+    float:left;
+    background-color:darkorange;
+    box-shadow: 1px 1px 10px black;
+    flex:0 0 30%;
+}
+
+figure img{
+    display:block;
+    width:275px;
+    margin:20px auto;
+    border:1px inset black;
+    height:225px;
+    
+}
+
+figcaption{
+    text-align:center;
+    padding-bottom:10px;
+    font-family:monospace;
+    font-size:20px;
+    
+    
+}
+
+/* Contacts.html*/
+
+form{
+    float:left
+}
+h2#h2-contacts {
+    margin-left:10px;
+    width:100%;
+    float:left;
+    clear:both;
+    
+}
+
+form#form-contacts{
+    margin-left:10px;
+    
+}
+
+form input {
+    margin-bottom:10px;
+}
+
+button#button-contact {
+    width:80px;
+    height:40px;
+    font-weight:600;
+    margin-top:10px;
+    margin-bottom:15px;
+    box-shadow:1px 1px 5px black;
+}
+
+#map{
+    float:right;
+    margin-right:20px;
+    margin-top:0;
+}
+
+div#map h2{
+    margin-top:-50px;
+}
+
