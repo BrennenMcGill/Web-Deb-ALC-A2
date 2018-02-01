@@ -39,12 +39,14 @@
             else{
                 alert("You are a wimp! You milk drinker!!!");
             }
-                
+        }
+            // Village
+            
         function Village(){
                 var village = prompt("You arive at the village of kazoos!  You see no one around.  However there is a blacksmith, inn, pub, and the entrance to the Yellow Brick Road.").toLowerCase();
             if(village == "blacksmith" || village == "go back to blacksmith"){
                 alert("The blacksmith is in his hut and comes out and ignores you and instead works!");
-                Village();
+                BlackSmith();
                 
             }
             else if(village=="inn" || village=="go to inn"){
@@ -63,38 +65,50 @@
                 Village();
             }
             }
+            // Black Smith
+        function BlackSmith(){
+            var blacksmith = prompt ("Do you wish to interupt buy a mace? \np -Buy Mace").toLocaleLowerCase();
+            if(blacksmith == "buy mace" && inventory.coins == 100){
+                inventory.coins = inventory.coins - 100;
+                inventory.mace = 1;
+                alert("You have bought a mace! \n mace = " + inventory.mace + "\n Coins ="+ inventory.coins);
+                Village();
+            }
+            else if(blacksmith == "no"){
+                Village();
+            }
+            else {
+                alert("I don't know what you mean")
+                BlackSmith();      
+            }
+        }
             
-        function YBR (){ 
+          // Yellow Brick Road
+            
+        function YBR(){ 
             var ybr = prompt("You begin to follow the yellow brick roaud, it goies on for a mile or so before you reach the countryside and notice a scarecrow beside a corn field.  the Scarecrow has a very sad look on his face.  Do you wish to stop to talk with him or move on?").toLowerCase;
             
-            if(ybr == "talk" || village== "talk with scarecrow"){
+            if(ybr == "talk" || ybr == "talk with scarecrow"){
                 alert("The scarecrow move suddenly as if startled.  He looks around to see who is talking to him.");
-                scarecrow();
+                YBR();
             }
-            else if (ybr == "move on"){
+            else if (ybr == "move on" || "continue"){
                 theDarkForest();
                      }
             else {
-                alert("You don't have the athority to do so.")
+                alert("You don't have the athority to do so.");
+                YBR();
             }
-            var scarecrow = prompt("He doesn't seem to notice you down below.  He is hung upon a stake. How will you get his attention?  You can yell or throw rocks");
+        }
+        function theDarkForest(){
+            var tdf = prompt("As you continue down the Yellow Brick road you start to notice the path turns to dirt and you are surrounded buy trees.  You come across a fork in the road.  The left leads to what seems to be light, the right seems to get darker.  What do you wish to do ? \np - Go left  \np -go right")
         }
             
-           // switch(scarecrow){
-                //case "yell":
-                   // alert ("The scarecrow, cries out ' who's yelling at me.' You say down here Mr. Scarecrow! he looks down and says, 'oh, I didn't see you there");
-                   // break;
-                //case "throw rocks": 
-                 //   alert("The Scarescrow is alarmed and angry.  He now notices you and jump down from the stake in fear.")
-                   // break;
-                //default:
-                  //  alert("You don't have the athority to do so.")
-                  //  YBR();
-                    //        }
-            
+          
           
         
         
         </script>
     </body>
 </html>
+            
