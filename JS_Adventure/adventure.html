@@ -9,7 +9,7 @@
         <p>By: Brennen McGill</p>
         <script>
         
-              var inentory = {
+              var inventory = {
                 coins:100,
                 mace:0,
                 goldenKey:0,
@@ -86,7 +86,7 @@
           // Yellow Brick Road
             
         function YBR(){ 
-            var ybr = prompt("You begin to follow the yellow brick roaud, it goies on for a mile or so before you reach the countryside and notice a scarecrow beside a corn field.  the Scarecrow has a very sad look on his face.  Do you wish to stop to talk with him or move on?").toLowerCase;
+            var ybr = prompt("You begin to follow the yellow brick roaud, it goies on for a mile or so before you reach the countryside and notice a scarecrow beside a corn field.  the Scarecrow has a very sad look on his face.  Do you wish to stop to talk with him or move on?").toLowerCase();
             
             if(ybr == "talk" || ybr == "talk with scarecrow"){
                 alert("The scarecrow move suddenly as if startled.  He looks around to see who is talking to him.");
@@ -100,8 +100,37 @@
                 YBR();
             }
         }
+            // The Dark Forest
         function theDarkForest(){
-            var tdf = prompt("As you continue down the Yellow Brick road you start to notice the path turns to dirt and you are surrounded buy trees.  You come across a fork in the road.  The left leads to what seems to be light, the right seems to get darker.  What do you wish to do ? \np - Go left  \np -go right")
+            var tdf = prompt("As you continue down the Yellow Brick road you start to notice the path turns to dirt and you are surrounded buy trees.  You come across a fork in the road.  The left leads to what seems to be light, the right seems to get darker.  What do you wish to do ? \np - Go left  \np - Go right").toLocaleLowerCase();
+            if (tdf == "go left"){
+                alert("You continue down the path.  The trail is getting narrowing with every step. You stubble upon a cabin in a clearing.");
+                Cabin();
+            }
+            else if (tdf == "go right"){
+                alert("As you walk you notice eyes pass over you.  You try to go quicker but they are still there.  Your stopped in your tracks when a guhl jumps in front of you.");
+                Battle();
+            }
+            else if (tdf == "go to the side"){
+                alert("You stuble down a hidden path and find a chest.  You open the chest a see a ruby heart.");
+                inventory.rubyHeart = 1;
+                theDarkForest();
+            }
+            else{
+                alert ("I'm confused");
+                theDarkForest();
+            }
+        }
+        // Cabin
+        function Cabin();{
+            var cabin = prompt ("You aproach the cabin, and as you do you hear the rush of a waterfall and see a pile of leaves.  You check all of the doors and find that they are all locked.").toLocaleLowerCase();
+            if (cabin == "jump in pile of leaves"){
+                alert("You jump into the pile of leave and land on a wooden box.  you open the box and find a bag of coins.");
+                inventory.coins = 100;
+                alert("Inventory = \n coins"+ inventory.coins +"\n rubyheart"+ inventory.rubyHeart + "Mace"+ inventory.mace);
+                Cabin();
+            }
+            else if (cabin)
         }
             
           
