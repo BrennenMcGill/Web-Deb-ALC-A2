@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<!-- saved from url=(0079)file:///Users/51712/Documents/Github/Web-Deb-ALC-A2/JS_Adventure/adventure.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <title>Adventure Game</title>
     
     </head>
@@ -122,62 +122,22 @@
             }
         }
         // Cabin
-        function Cabin(){
+        function Cabin();{
             var cabin = prompt ("You aproach the cabin, and as you do you hear the rush of a waterfall and see a pile of leaves.  You check all of the doors and find that they are all locked.").toLocaleLowerCase();
             if (cabin == "jump in pile of leaves"){
                 alert("You jump into the pile of leave and land on a wooden box.  you open the box and find a bag of coins.");
                 inventory.coins = 100;
-                alert("Inventory = \n coins"+ inventory.coins +"\n rubyheart"+ inventory.rubyHeart + "\n Mace"+ inventory.mace);
+                alert("Inventory = \n coins"+ inventory.coins +"\n rubyheart"+ inventory.rubyHeart + "Mace"+ inventory.mace);
                 Cabin();
             }
-            else if (cabin == "enter cabin"){
-                enterCabin();
-            }
-            else if (cabin == "go to waterfall" || cabin == "waterfall"){
-                alert("You follow the sound of water.  When you get to the waterfall and you notice a strange path going behind the waterfall.");
-                waterFall();
-            }
-            else{
-                alert("I don't understand");
-                Cabin();
-            }
+            else if (cabin)
         }
-        function enterCabin(){
-            var entercabin = prompt ("How do you wish to enter cabin? \np front door \np window")
-            if (entercabin == "front door" && inventory.goldenKey == 1){
-                alert("You enter the cabin.  It is empty and abandond so you leave.")
-                Cabin();
-            }
-            else if (entercabin == "window"){
-                alert("You are weak! you can't break the window!")
-                Cabin();
-            }
-            else{
-                alert("No")
-                Cabin();
-            }
-        }
-            // Water Fall
-        function waterFall(){
-               var waterfall = prompt ("What do you wish to do? \np follow path \np turn back").toLowercase();
-                if (waterfall == "follow path"){
-                    alert("You adventure towards and the path.  The path leads behing the waterfall and you find a golden key.");
-                    inventory.goldenKey = 1;
-                    Cabin();
-                }
-               else if (waterfall == "turn back"){
-                   Cabin();
-               }
-               else {
-                   alert("Im confused");
-                   waterFall();
-               }
-           } 
+            
           
           
         
         
         </script>
-    </body>
-</html>
-            
+    
+
+            </body></html>
