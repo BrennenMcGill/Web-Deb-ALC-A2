@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Adventure Game</title>
+    
+    </head>
+    <body>
+        <h1>Adventure Game v0.1</h1>
+        <p>By: Brennen McGill</p>
+        <script>
+        
+              var inventory = {
+                coins:100,
+                mace:0,
+                goldenKey:0,
+                rubyHeart:0,
+                honor:0,
+            }
+            var player = {
+                firstname:"",
+                lastname:"",
+                age:"",
+                gender:"",
+                health:100,
+                score:0,
+            }
+            Start();
+        function Start(){
+            player.firstName = prompt("What is your first name?","Bub");
+            player.lastName = prompt("What is your last name?");
+            player.gender = prompt("What is your gender? Dude or Dudette?");
+            player.age = prompt("How old are you?");
+            alert("Welcome to the land of make believe," + player.firstName + player.lastName+ player.age);
+            var beginAdv = confirm("Are you ready to begin your adventure?");
+            
+            if(beginAdv){
+                Village();
+            }
+            else{
+                alert("You are a wimp! You milk drinker!!!");
+            }
+        }
+            // Village
+            
+        function Village(){
+                var village = prompt("You arive at the village of kazoos!  You see no one around.  However there is a blacksmith, inn, pub, and the entrance to the Yellow Brick Road.").toLowerCase();
+            if(village == "blacksmith" || village == "go back to blacksmith"){
+                alert("The blacksmith is in his hut and comes out and ignores you and instead works!");
+                BlackSmith();
+                
+            }
+            else if(village=="inn" || village=="go to inn"){
+                alert("You enter the inn and find the innkeeper, she asks what you want. She says, 'We have a room, food, and a fire.'");
+                Village();
+            }    
+            else if(village =="pub" || village == "go to pub"){
+                alert("There is a sign attached to the door that says, 'you must be 21 and older to enter'  You are not 21");
+                Village();
+            }
+            else if(village =="yellow brick road" || village == "take yellow brick road"){
+               YBR();
+            }
+            else{
+                alert("I don't speak stupid!");
+                Village();
+            }
+            }
+            // Black Smith
+        function BlackSmith(){
+            var blacksmith = prompt ("Do you wish to interupt buy a mace? \np -Buy Mace").toLocaleLowerCase();
+            if(blacksmith == "buy mace" && inventory.coins == 100){
+                inventory.coins = inventory.coins - 100;
+                inventory.mace = 1;
+                alert("You have bought a mace! \n mace = " + inventory.mace + "\n Coins ="+ inventory.coins);
+                Village();
+            }
+            else if(blacksmith == "no"){
+                Village();
+            }
+            else {
+                alert("I don't know what you mean")
+                BlackSmith();      
+            }
+        }
+            
+          // Yellow Brick Road
+            
+        function YBR(){ 
+            var ybr = prompt("You begin to follow the yellow brick roaud, it goies on for a mile or so before you reach the countryside and notice a scarecrow beside a corn field.  the Scarecrow has a very sad look on his face.  Do you wish to stop to talk with him or move on?").toLowerCase();
+            
+            if(ybr == "talk" || ybr == "talk with scarecrow"){
+                alert("The scarecrow move suddenly as if startled.  He looks around to see who is talking to him.");
+                YBR();
+            }
+            else if (ybr == "move on" || "continue"){
+                theDarkForest();
+                     }
+            else {
+                alert("You don't have the athority to do so.");
+                YBR();
+            }
+        }
+            // The Dark Forest
+        function theDarkForest(){
+            var tdf = prompt("As you continue down the Yellow Brick road you start to notice the path turns to dirt and you are surrounded buy trees.  You come across a fork in the road.  The left leads to what seems to be light, the right seems to get darker.  What do you wish to do ? \np - Go left  \np - Go right").toLocaleLowerCase();
+            if (tdf == "go left"){
+                alert("You continue down the path.  The trail is getting narrowing with every step. You stubble upon a cabin in a clearing.");
+                Cabin();
+            }
+            else if (tdf == "go right"){
+                alert("As you walk you notice eyes pass over you.  You try to go quicker but they are still there.  Your stopped in your tracks when a guhl jumps in front of you.");
+                Battle();
+            }
+            else if (tdf == "go to the side"){
+                alert("You stuble down a hidden path and find a chest.  You open the chest a see a ruby heart.");
+                inventory.rubyHeart = 1;
+                theDarkForest();
+            }
+            else{
+                alert ("I'm confused");
+                theDarkForest();
+            }
+        }
+            // Battle
+        function Battle(){
+            var battle = prompt("You are face to face with a guhl.  You can reach for your weapon or run away.").toLowerCase();
+            if (battle == "reach for weapon" && inventory.mace == 1){
+                inventory.mace = inventory.mace - 1;
+                alert("You reach for your mace and smack the guhl in the face and kill it.  Your adventure continues.")
+                Final();
+            }
+            else if (battle == "run away"){
+                alert("You coward! You run back to the fork in the path")
+                theDarkForest();
+            }
+            else{
+                alert("parden?")
+                Battle();
+            }
+        }
+        // Cabin
+        function Cabin(){
+            var cabin = prompt ("You aproach the cabin, and as you do you hear the rush of a waterfall and see a pile of leaves.  You check all of the doors and find that they are all locked.  Or you can go back.").toLocaleLowerCase();
+            if (cabin == "jump in pile of leaves"){
+                alert("You jump into the pile of leave and land on a wooden box.  you open the box and find a bag of coins.");
+                inventory.coins = 100;
+                alert("Inventory = \n coins"+ inventory.coins +"\n rubyheart"+ inventory.rubyHeart + "\n Mace"+ inventory.mace);
+                Cabin();
+            }
+            else if (cabin == "enter cabin"){
+                enterCabin();
+            }
+            else if (cabin == "go to waterfall" || cabin == "waterfall"){
+                alert("You follow the sound of water.  When you get to the waterfall and you notice a strange path going behind the waterfall.");
+                waterFall();
+            }
+            else if (cabin == "go back"){
+                theDarkForest();
+            }
+            else{
+                alert("I don't understand");
+                Cabin();
+            }
+        }
+        function enterCabin(){
+            var entercabin = prompt ("How do you wish to enter cabin? \np front door \np window")
+            if (entercabin == "front door" && inventory.goldenKey == 1){
+                alert("You enter the cabin.  It is empty and abandond so you leave.")
+                Cabin();
+            }
+            else if (entercabin == "window"){
+                alert("You are weak! you can't break the window!")
+                Cabin();
+            }
+            else{
+                alert("No")
+                Cabin();
+            }
+        }
+            // Water Fall
+        function waterFall(){
+               var waterfall = prompt ("What do you wish to do? \np follow path \np turn back").toLowercase();
+                if (waterfall == "follow path"){
+                    alert("You adventure towards and the path.  The path leads behing the waterfall and you find a golden key." && inventory.goldenKey == 0);
+                    inventory.goldenKey = inventory.goldenKey == + 1;
+                    Cabin();
+                }
+               else if (waterfall == "turn back"){
+                   Cabin();
+               }
+               else {
+                   alert("Im confused");
+                   waterFall();
+               }
+           } 
+          // Final
+        function Final(){
+            var final = prompt("After you kill the guhl you continue down the path with confidence.  You walk out of the foest and find yourself infront of the most beautiful city you have ever seen. You stand  in amazement but feel something is off.  Your aproched by two men.  You can see them reaching for something is there coats.  You don't have time to wait to see what they have! You react fast.  What do you do /n Attack /n Run /n hide").toLowerCase;
+            if (final == "attack" && inventory.mace == 1){
+                inventory.mace = inventory.mace == - 1;
+                alert("You kill the men.  You look at what they were going to grab and you see a brosure.  They were coming to greet you.  More men come.  You just sit there and let them come.  They put you in hand cuffs and take you to jail.")
+                alert("GAME OVER");
+            }
+            else if (final == "run"){
+                alert("You start to run away from the men.  You try to go back into the forest, however you notice that more guhls are blocking the path,  You go to run to the side and find more men coming.  You stop.  Not knowing what to do next you just let them do what they want.");
+                HappyEnding();
+            }
+            else if (final == "hide"){
+                alert("You start to run away to find a hiding spot.  You try to go back into the forest, however you notice that more guhls are blocking the path,  You go to run to the side and find more men coming.  You stop.  Not knowing what to do next you just let them do what they want.");
+                HappyEnding();
+            }
+            else {
+                alert("???");
+                Final();
+            }
+        }
+        function HappyEnding(){
+            
+            
+        }
+          
+        
+        
+        </script>
+    </body>
+</html>
