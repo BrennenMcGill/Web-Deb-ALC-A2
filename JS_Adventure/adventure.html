@@ -121,9 +121,26 @@
                 theDarkForest();
             }
         }
+            // Battle
+        function Battle(){
+            var battle = prompt("You are face to face with a guhl.  You can reach for your weapon or run away.").toLowerCase();
+            if (battle == "reach for weapon" || battle =="reach for your weapon" && inventory.mace == 1){
+                inventory.mace = inventory.mace - 1;
+                alert("You reach for your mace and smack the guhl in the face and kill it.  Your adventure continues.")
+                Final();
+            }
+            else if (battle == "run away"){
+                alert("You coward! You run back to the fork in the path")
+                theDarkForest();
+            }
+            else{
+                alert("parden?")
+                Battle();
+            }
+        }
         // Cabin
         function Cabin(){
-            var cabin = prompt ("You aproach the cabin, and as you do you hear the rush of a waterfall and see a pile of leaves.  You check all of the doors and find that they are all locked.").toLocaleLowerCase();
+            var cabin = prompt ("You aproach the cabin, and as you do you hear the rush of a waterfall and see a pile of leaves.  You check all of the doors and find that they are all locked.  Or you can go back.").toLocaleLowerCase();
             if (cabin == "jump in pile of leaves"){
                 alert("You jump into the pile of leave and land on a wooden box.  you open the box and find a bag of coins.");
                 inventory.coins = 100;
@@ -137,6 +154,9 @@
                 alert("You follow the sound of water.  When you get to the waterfall and you notice a strange path going behind the waterfall.");
                 waterFall();
             }
+            else if (cabin == "go back"){
+                theDarkForest();
+            }
             else{
                 alert("I don't understand");
                 Cabin();
@@ -149,20 +169,20 @@
                 Cabin();
             }
             else if (entercabin == "window"){
-                alert("You are weak! you can't break the window!")
+                alert("You are weak! you can't break the window!");
                 Cabin();
             }
             else{
-                alert("No")
+                alert("No");
                 Cabin();
             }
         }
             // Water Fall
         function waterFall(){
-               var waterfall = prompt ("What do you wish to do? \np follow path \np turn back").toLowercase();
+               var waterfall = prompt ("What do you wish to do? \np follow path \np turn back").toLowerCase();
                 if (waterfall == "follow path"){
-                    alert("You adventure towards and the path.  The path leads behing the waterfall and you find a golden key.");
-                    inventory.goldenKey = 1;
+                    alert("You adventure towards and the path.  The path leads behing the waterfall and you find a golden key." && inventory.goldenKey == 0);
+                    inventory.goldenKey = inventory.goldenKey == + 1;
                     Cabin();
                 }
                else if (waterfall == "turn back"){
@@ -173,11 +193,49 @@
                    waterFall();
                }
            } 
-          
+          // Final
+        function Final(){
+            var final = prompt("After you kill the guhl you continue down the path with confidence.  You walk out of the foest and find yourself infront of the most beautiful city you have ever seen. You stand  in amazement but feel something is off.  Your aproched by two men.  You can see them reaching for something is there coats.  You don't have time to wait to see what they have! You react fast.  What do you do \np Attack \np Run \np hide").toLowerCase();
+            if (final == "attack" && inventory.mace == 1){
+                inventory.mace = inventory.mace == - 1;
+                alert("You kill the men.  You look at what they were going to grab and you see a brosure.  They were coming to greet you.  More men come.  You just sit there and let them come.  They put you in hand cuffs and take you to jail.")
+                alert("GAME OVER");
+            }
+            else if (final == "run"){
+                alert("You start to run away from the men.  You try to go back into the forest, however you notice that more guhls are blocking the path,  You go to run to the side and find more men coming.  You stop.  Not knowing what to do next you just let them do what they want.");
+                HappyEnding();
+            }
+            else if (final == "hide"){
+                alert("You start to run away to find a hiding spot.  You try to go back into the forest, however you notice that more guhls are blocking the path,  You go to run to the side and find more men coming.  You stop.  Not knowing what to do next you just let them do what they want.");
+                HappyEnding();
+            }
+            else {
+                alert("???");
+                Final();
+            }
+        }
+        function HappyEnding(){
+            var prompt = ("The men approch you with open arms.  They tell you that you have made it to the lost city of atlantis.  You sit there confused.  You thought that they were going to kill you.  You thought atlantis was at the bottom of the ocean.  None of this makeds any sence.  But you follow them anyways.  They show you to the king and gives you three options. \np Stay in a house in atlantis and live out your life \np Join the Legion of atlantis to explore more \np Return home and risk trying to get back").toLowerCase();
+            if (HappyEnding == "stay in a house" || HappyEnding == "stay in a house in atlantis and live out your life"){
+                alert("You settle down in a small but beautiful house in the center of atlantis.  You meet a fine spouse who you marry and grow old with.  You die at a ripe old age of 42.");
+                alert("Game over");
+            }
+            else if (HappyEnding == "join the legion" || HappyEnding == "join the legion of atlantis to explore more") {
+                alert("You join the legion of atlantis and go on a few adventures with them.  You fight monster crabs, guhls, and even other cities.  However sadly your life comes to an end when coming home from a battle and get struck by lightning.  You died 4 years after arriving at atlantis.");
+                alert("Game over");
+            }
+            else if (HappyEnding == "return home" || HappyEnding == "return home and rish trying to get back"){
+                alert("You depart back from where you came from.  On your way back you get jumped by a monster crab and die.");
+                alert("Game over");
+            }
+            else {
+                alert("The king is displeased with your language and orders your death.");
+                alert("Game over");
+            }
+        }
           
         
         
         </script>
     </body>
-</html>
-            
+</html>    
