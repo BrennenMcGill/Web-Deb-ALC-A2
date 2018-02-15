@@ -15,6 +15,7 @@
                 goldenKey:0,
                 rubyHeart:0,
                 honor:0,
+                knife:0,
             }
             var player = {
                 firstname:"",
@@ -60,6 +61,9 @@
             else if(village =="yellow brick road" || village == "take yellow brick road"){
                YBR();
             }
+            else if (village == "cheat"){
+                waterFall();
+            }
             else{
                 alert("I don't speak stupid!");
                 Village();
@@ -67,10 +71,10 @@
             }
             // Black Smith
         function BlackSmith(){
-            var blacksmith = prompt ("Do you wish to interupt buy a mace? \np -Buy Mace").toLocaleLowerCase();
+            var blacksmith = prompt ("Do you wish to interupt buy a mace? \n -Buy Mace").toLocaleLowerCase();
             if(blacksmith == "buy mace" && inventory.coins == 100){
                 inventory.coins = inventory.coins - 100;
-                inventory.mace = 1;
+                inventory.mace = + 1;
                 alert("You have bought a mace! \n mace = " + inventory.mace + "\n Coins ="+ inventory.coins);
                 Village();
             }
@@ -102,7 +106,7 @@
         }
             // The Dark Forest
         function theDarkForest(){
-            var tdf = prompt("As you continue down the Yellow Brick road you start to notice the path turns to dirt and you are surrounded buy trees.  You come across a fork in the road.  The left leads to what seems to be light, the right seems to get darker.  What do you wish to do ? \np - Go left  \np - Go right").toLocaleLowerCase();
+            var tdf = prompt("As you continue down the Yellow Brick road you start to notice the path turns to dirt and you are surrounded buy trees.  You come across a fork in the road.  The left leads to what seems to be light, the right seems to get darker.  What do you wish to do ? \n - Go left  \n - Go right \n -Go back").toLocaleLowerCase();
             if (tdf == "go left"){
                 alert("You continue down the path.  The trail is getting narrowing with every step. You stubble upon a cabin in a clearing.");
                 Cabin();
@@ -115,6 +119,10 @@
                 alert("You stuble down a hidden path and find a chest.  You open the chest a see a ruby heart.");
                 inventory.rubyHeart = 1;
                 theDarkForest();
+            }
+            else if (tdf == "go back"){
+                Village();
+            
             }
             else{
                 alert ("I'm confused");
@@ -142,9 +150,9 @@
         function Cabin(){
             var cabin = prompt ("You aproach the cabin, and as you do you hear the rush of a waterfall and see a pile of leaves.  You check all of the doors and find that they are all locked.  Or you can go back.").toLocaleLowerCase();
             if (cabin == "jump in pile of leaves"){
-                alert("You jump into the pile of leave and land on a wooden box.  you open the box and find a bag of coins.");
-                inventory.coins = 100;
-                alert("Inventory = \n coins"+ inventory.coins +"\n rubyheart"+ inventory.rubyHeart + "\n Mace"+ inventory.mace);
+                alert("You jump into the pile of leave and land on a wooden box.  you open the box and find a knife.");
+                inventory.knife = 1;
+                alert("Inventory = \n knife: "+ inventory.knife +"\n rubyheart: "+ inventory.rubyHeart + "\n Mace: "+ inventory.mace);
                 Cabin();
             }
             else if (cabin == "enter cabin"){
@@ -179,10 +187,10 @@
         }
             // Water Fall
         function waterFall(){
-               var waterfall = prompt ("What do you wish to do? \np follow path \np turn back").toLowerCase();
+               var waterfall = prompt ("What do you wish to do? \n follow path \n go turn back").toLowerCase();
                 if (waterfall == "follow path"){
-                    alert("You adventure towards and the path.  The path leads behing the waterfall and you find a golden key." && inventory.goldenKey == 0);
-                    inventory.goldenKey = inventory.goldenKey == + 1;
+                    alert("You adventure towards and the path.  The path leads behind the waterfall and you find a golden key." && inventory.goldenKey == 0);
+                    inventory.goldenKey = 1;
                     Cabin();
                 }
                else if (waterfall == "turn back"){
@@ -195,10 +203,10 @@
            } 
           // Final
         function Final(){
-            var final = prompt("After you kill the guhl you continue down the path with confidence.  You walk out of the foest and find yourself infront of the most beautiful city you have ever seen. You stand  in amazement but feel something is off.  Your aproched by two men.  You can see them reaching for something is there coats.  You don't have time to wait to see what they have! You react fast.  What do you do \np Attack \np Run \np hide").toLowerCase();
-            if (final == "attack" && inventory.mace == 1){
-                inventory.mace = inventory.mace == - 1;
-                alert("You kill the men.  You look at what they were going to grab and you see a brosure.  They were coming to greet you.  More men come.  You just sit there and let them come.  They put you in hand cuffs and take you to jail.")
+            var final = prompt("After you kill the guhl you continue down the path with confidence.  You walk out of the foest and find yourself infront of the most beautiful city you have ever seen. You stand  in amazement but feel something is off.  Your aproched by two men.  You can see them reaching for something is there coats.  You don't have time to wait to see what they have! You react fast.  What do you do \n Attack \n Run \n Hide").toLowerCase();
+            if (final == "attack" && inventory.knife == 1){
+                inventory.knife = 0;
+                alert("You kill the men.  You look at what they were going to grab and you see a brosure.  They were coming to greet you.  More men come.  You just sit there and let them come.  They put you in hand cuffs and take you to jail.");
                 alert("GAME OVER");
             }
             else if (final == "run"){
@@ -215,22 +223,22 @@
             }
         }
         function HappyEnding(){
-            var prompt = ("The men approch you with open arms.  They tell you that you have made it to the lost city of atlantis.  You sit there confused.  You thought that they were going to kill you.  You thought atlantis was at the bottom of the ocean.  None of this makeds any sence.  But you follow them anyways.  They show you to the king and gives you three options. \np Stay in a house in atlantis and live out your life \np Join the Legion of atlantis to explore more \np Return home and risk trying to get back").toLowerCase();
-            if (HappyEnding == "stay in a house" || HappyEnding == "stay in a house in atlantis and live out your life"){
+            var happyending = prompt  ("The men approch you with open arms.  They tell you that you have made it to the lost city of atlantis.  You sit there confused.  You thought that they were going to kill you.  You thought atlantis was at the bottom of the ocean.  None of this makeds any sence.  But you follow them anyways.  They show you to the king and gives you three options. \n Stay in a house in atlantis and live out your life \n Join the Legion of atlantis to explore more \n Return home and risk trying to get back").toLowerCase();
+            if (happyending == "stay in a house" || HappyEnding == "stay in a house in atlantis and live out your life"){
                 alert("You settle down in a small but beautiful house in the center of atlantis.  You meet a fine spouse who you marry and grow old with.  You die at a ripe old age of 42.");
                 alert("Game over");
             }
-            else if (HappyEnding == "join the legion" || HappyEnding == "join the legion of atlantis to explore more") {
+            else if (happyending == "join the legion" || HappyEnding == "join the legion of atlantis to explore more") {
                 alert("You join the legion of atlantis and go on a few adventures with them.  You fight monster crabs, guhls, and even other cities.  However sadly your life comes to an end when coming home from a battle and get struck by lightning.  You died 4 years after arriving at atlantis.");
                 alert("Game over");
             }
-            else if (HappyEnding == "return home" || HappyEnding == "return home and rish trying to get back"){
+            else if (happyending == "return home" || HappyEnding == "return home and rish trying to get back"){
                 alert("You depart back from where you came from.  On your way back you get jumped by a monster crab and die.");
                 alert("Game over");
             }
             else {
                 alert("The king is displeased with your language and orders your death.");
-                alert("Game over");
+                alert("Game over")
             }
         }
           
