@@ -1,0 +1,14 @@
+/* CSS Style sheet */
+
+body{
+    background-color: lightblue;
+    
+}
+
+nav{
+    background-color: lightgrey;
+}
+div#body{
+   background-color: lightgrey;
+   border:1 black inset;
+}
